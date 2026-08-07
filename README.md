@@ -4,3 +4,10 @@ Forcing é uma famosa ferramenta primáriamente inventada por Paul Cohen para pr
 
 ## Arquivo
 
+A compilação dos códigos contidos neste repositório podem ser encontrados em:
+
+[estudos-em-forcing](https://github.com/fabricioynone/estudos_em_forcing/releases/latest)
+
+## Disclaimer
+
+O estas notas ainda são um trabalho em progresso, por isso, não estão totalmente revisadas (nem escritas) e estão, naturalmente, propenças a erros.
