@@ -1,0 +1,3 @@
+\babel@toc {brazilian}{}\relax 
+\contentsline {chapter}{\numberline {1}Recursão}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Relações Bem-Fundadas e Set-like}{5}{section.1.1}%

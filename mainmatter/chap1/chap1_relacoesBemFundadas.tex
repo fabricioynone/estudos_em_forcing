@@ -1,0 +1,27 @@
+\section{Relações Bem-Fundadas e Set-like}
+
+Adotemos, durante este capítulo, o termo Relação Definida Própria como um símbolo de predicado binário da linguagem que está em uso, seja ele primitivo ou introduzido por definição e Relação Definida como uma relação definida própria ou uma relação conjunto.
+
+Vamos definir a notação de relacão set-like
+
+\begin{definition}
+    Uma Relação Definida $ R $ é dita set-like se, e somente se,
+    $$
+        \pred_R(x) = \set{z : zRx}
+    $$
+    é um conjunto para todo $ x $.
+\end{definition}
+
+Para a parte de ser bem-fundada:
+
+\begin{definition}
+    Dado um conjunto $ X $, um elemento $x\in X$ é dito $R$-minimal se, e somente se, para todo $y\in X(y\not R x)$. Assim, $R$ é dita Bem-fundada se
+    $$
+    \forall A(A \subseteq X \land \neq\emptyset\to \exists x\in A (y\in A \to y\not R x))
+    $$
+    Isto é, $R$ é Bem-fundada se todo conjunto não-vazio possuir elemento $R$-minimal.
+\end{definition}
+
+Notemos que quando $R$ acima é definida própria, as definições acima viram esquemas de definições, pois seria definido para cada símbolo de relação introduzido por definição.
+
+Obviamente, toda relação conjunto $R$ é set-like, uma vez que $\pred_R(x) \subseteq \dom R$ 
