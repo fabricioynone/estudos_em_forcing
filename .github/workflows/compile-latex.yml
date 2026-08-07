@@ -1,0 +1,22 @@
+name: Build and Release LaTeX
+on:
+  push:
+    tags:
+      - 'v*' # Triggers whenever you push a tag like v1.0, v2.1, etc.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex # Change this to your main .tex file name
+
+      - name: Upload PDF to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: main.pdf
