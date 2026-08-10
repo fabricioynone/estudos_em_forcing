@@ -1,11 +1,11 @@
-\section{Relações Bem-Fundadas e Set-like}
+\section{Relações Bem-fundadas e Set-like}
 
 Adotemos, durante este capítulo, o termo Relação Definida Própria como um símbolo de predicado binário da linguagem que está em uso, seja ele primitivo ou introduzido por definição e Relação Definida como uma relação definida própria ou uma relação conjunto.
 
 Vamos definir a notação de relacão set-like
 
 \begin{definition}
-    Uma Relação Definida $ R $ é dita set-like se, e somente se,
+    Uma relação definida $ R $ é dita set-like se, e somente se,
     $$
         \pred_R(x) = \set{z : zRx}
     $$
@@ -15,13 +15,62 @@ Vamos definir a notação de relacão set-like
 Para a parte de ser bem-fundada:
 
 \begin{definition}
-    Dado um conjunto $ X $, um elemento $x\in X$ é dito $R$-minimal se, e somente se, para todo $y\in X(y\not R x)$. Assim, $R$ é dita Bem-fundada se
+    Dado um conjunto $ X $, um elemento $x\in X$ é dito $R$-minimal se, e somente se, para todo $y\in X(y\centernot R x)$. Assim, $R$ é dita bem-fundada se
     $$
-    \forall A(A \subseteq X \land \neq\emptyset\to \exists x\in A (y\in A \to y\not R x))
+    \forall X(X\neq \emptyset \to \exists x\in A (y\in A \to y\centernot R x))
     $$
-    Isto é, $R$ é Bem-fundada se todo conjunto não-vazio possuir elemento $R$-minimal.
+    Isto é, $R$ é bem-fundada se todo conjunto não-vazio possuir elemento $R$-minimal.
 \end{definition}
 
-Notemos que quando $R$ acima é definida própria, as definições acima viram esquemas de definições, pois seria definido para cada símbolo de relação introduzido por definição.
+\begin{remark}
+    Notemos que quando $R$ acima é definida própria, as definições acima viram esquemas de definições, pois seria definido para cada símbolo de relação introduzido por definição. Omitiremos observações como esta ao decorrer da seção, mas o leitor será sábio em perceber que também se aplicará aos resultados e definições seguintes.
+    
+    Obviamente, toda relação conjunto $R$ é set-like, uma vez que $\pred_R(x) \subseteq \dom R$. 
+\end{remark}
 
-Obviamente, toda relação conjunto $R$ é set-like, uma vez que $\pred_R(x) \subseteq \dom R$ 
+\begin{example}
+    pending
+\end{example}
+
+\begin{proposition}
+    Sejam $R$ e $S$ relações definidas tais que para todo $x$ e para todo $y$, se $xRy$, então $xSy$, então:
+    \begin{enumerate}[label=\roman*)]
+        \item Se $S$ é set-like, então $R$ é set-like
+        \item Se $S$ é bem-fundada, então $R$ é bem-fundada.
+    \end{enumerate}
+    Ademais, abrevia-se a hipótese dessa proposição como $R \subseteq S$ e dizemos que $S$ estende $R$.
+\end{proposition}
+\begin{proof}
+     Para i), basta notar que, como $S$ é set-like, $\pred_S(x)$ é conjunto para todo $x$, assim, $\pred_R(x) = \set{y \in \pred_S(x): yRx}$ é conjunto pelo axioma da compreenção.
+
+     Para ii), Consideremos $A$ um conjunto não vazio. Sejam $m\in A$ um elemento $S$-minimal de $A$, que sabemos que existe por hipótese. Então, $m$ será $R$-minimal, de fato, suponha que exista $y$ tal que $yRm$, teríamos, então que $ySm$ o que implica que $y\notin A$.
+\end{proof}
+
+Vamos ver, agora, como estender relações set-likes de forma que se transformem em relações transitivas.
+
+\begin{definition}
+    Seja $R$ uma relação definida. Para cada natural $n \geq 1$ e cada par $a,b$, um $R$-caminho de $n$ passos de $a$ até $b$ é uma sequência de elementos $(x_0,...,x_n)$ tal que $x_i R x_{i+1}$ para todo $i < n$ e que $x_0 = a$ e $x_n = b$.
+
+    Assim, definamos $x R^*y$ se, e somente se, existe um caminho de $n \geq 1$, com $n$ natural, passos de $x$ a $y$. Ademais, dizemos que $R^*$ é o fecho transitivo, ou a transitivização, de $R$
+    
+\end{definition}
+
+Provemos que $R^*$ é, de fato, transitivo e que extende $R$, justificando o nome dado na definição:
+
+\begin{proposition}
+    Se $R$ é uma relação definida, então $R^*$ é uma relação transitiva.
+\end{proposition}
+\begin{proof}
+    É claro que $R^*$ estende $R$, uma vez que se $xRy$, então $xR^* y$, pelo caminho $(x,y)$. 
+    
+    Para transitividade, lembremos que queremos provar que, se $xR^*y$ e $yR^*z$, então $xR^*z$. Ora, suponha que a premissa é verdadeira, então temos dois $R$-caminhos, $(x, x_1,...,x_{n-1},y)$ e $(y,y_1,...,y_{m-1}, z)$ de $n$ e $m$ passos, respectivamente. Notemos que $(x,x_1,...,y,y_1,...z)$ é um $R$-caminho que liga $x$ a $z$, assim, concluímos que $xR^*z$, como queríamos.
+\end{proof}
+
+Mostremos que a transitivização herda a propriedade de ser set-like:
+
+\begin{proposition}
+    Se $R$ é uma relação definida set-like, então $R^*$ é uma relação definida set-like
+\end{proposition}
+\begin{proof}
+    
+\end{proof}

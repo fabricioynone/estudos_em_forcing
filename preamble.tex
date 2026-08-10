@@ -9,7 +9,7 @@
 \usepackage{setspace}
 \usepackage[a4paper,left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{indentfirst}
-
+\usepackage{centernot}
 % --- LINE SPACING ---
 \onehalfspacing
 
@@ -24,9 +24,10 @@
 \definecolor{defback}{RGB}{245,250,240}
 
 % --- CONFIGURAÇÃO DE TEOREMAS (amsthm) ---
-\theoremstyle{plain}
+\theoremstyle{definition}
 \newtheorem{theorem}{Teorema}[section] 
 \newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposição}
 \theoremstyle{definition}
 \newtheorem{definition}{Definição}[section]
 \newtheorem{example}{Exemplo}[section]
@@ -47,6 +48,20 @@
   before skip=12pt, after skip=12pt
 }
 
+\tcolorboxenvironment{proposition}{
+  enhanced,
+  breakable,
+  colback=thmback,
+  colframe=thmborder,
+  boxrule=0.5pt,
+  leftrule=3pt,
+  arc=3pt,
+  borderline west={3pt}{0pt}{thmleftline},
+  top=4pt, bottom=4pt, left=6pt, right=6pt,
+  before skip=12pt, after skip=12pt
+}
+
+
 \tcolorboxenvironment{lemma}{
   enhanced,
   breakable,
@@ -63,6 +78,7 @@
 \tcolorboxenvironment{definition}{
   enhanced,
   breakable,
+  parbox=false,
   colback=defback,
   colframe=defborder,
   boxrule=0.5pt,
