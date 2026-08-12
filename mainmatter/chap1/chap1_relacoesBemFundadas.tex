@@ -1,6 +1,5 @@
 \section{Relações Bem-fundadas e Set-like}
-
-Adotemos, durante este capítulo, o termo Relação Definida Própria como um símbolo de predicado binário da linguagem que está em uso, seja ele primitivo ou introduzido por definição e Relação Definida como uma relação definida própria ou uma relação conjunto.
+Adotemos, durante este capítulo, o termo "relação definida própria" como um símbolo de predicado binário da linguagem que está em uso, seja ele primitivo ou introduzido por definição e "relação definida" como uma relação definida própria ou uma relação conjunto.
 
 Vamos definir a notação de relacão set-like
 
@@ -29,8 +28,23 @@ Para a parte de ser bem-fundada:
 \end{remark}
 
 \begin{example}
-    pending
+    $\in$ é set-like, pois $pred_\in(x) = \{y: y\in x\}$ é um conjunto.
 \end{example}
+\begin{example}
+    $pred_\preceq(1)$ seria o conjunto de todos os singletons, que não existe.   
+\end{example}
+
+\begin{example}
+    $\subseteq$ é set-like se, e somente se, vale o Axioma da Potência. Nesse caso, temos que $pred_\subseteq(x) = \mathcal P(x)$.
+\end{example}
+
+\begin{example}
+    = é set-like, pois $pred_=(x) = {x}$. Não, é, porém, bem-fundada, pois não possui um elemento =-minimal, uma vez que $x = x$. Analogamente, nenhuma relação reflexiva é bem-fundada.
+\end{example}
+\begin{example}
+    $<$ ordenação para ordinais é set-like, pois $<$ é $\in|_{ON}$. Se $x$ é não vazio, todo elemento de $X$ que não é ordinal é minimal, senão, existe $\alpha = \min X$ e este será o $<$-minimal, pois $\forall \beta \in X, \alpha \leq \beta$, assim, $\neg(\beta < \alpha)$.
+\end{example}
+
 
 \begin{proposition}
     Sejam $R$ e $S$ relações definidas tais que para todo $x$ e para todo $y$, se $xRy$, então $xSy$, então:
@@ -66,11 +80,42 @@ Provemos que $R^*$ é, de fato, transitivo e que extende $R$, justificando o nom
     Para transitividade, lembremos que queremos provar que, se $xR^*y$ e $yR^*z$, então $xR^*z$. Ora, suponha que a premissa é verdadeira, então temos dois $R$-caminhos, $(x, x_1,...,x_{n-1},y)$ e $(y,y_1,...,y_{m-1}, z)$ de $n$ e $m$ passos, respectivamente. Notemos que $(x,x_1,...,y,y_1,...z)$ é um $R$-caminho que liga $x$ a $z$, assim, concluímos que $xR^*z$, como queríamos.
 \end{proof}
 
+\begin{remark}
+    Na verdade, $R^*$ é a menor relação transitiva que contém $R$. Vejamos, (PENDING)
+\end{remark}
+
 Mostremos que a transitivização herda a propriedade de ser set-like:
 
 \begin{proposition}
     Se $R$ é uma relação definida set-like, então $R^*$ é uma relação definida set-like
 \end{proposition}
+\begin{proof}
+    Seja $X$ um conjunto qualquer, provemos por indução que para todo $n \geq 1$ natural existe um único $y$ tal que para todo $z \in y$, $z\in y \iff zR^*x$ com um caminho de $n$ passos. Chamemos $y$ de $\pred_R^n(x)$.
+
+    Para $n=1$, segue de que $R$ é set-like. Suponha, agora, que vale para $n \geq 1$, pelo Esquema da Substituição, o conjunto $A = \set{\pred_R(y) : y \in \pred_R^n(x)}$ é bem definido, pois $\pred_R(y)$ é único para todo $y\in \pred_R^n(x)$. Sabendo disso, definamos $\pred_R^{n+1}(x) = \bigcup A$. Mostremos que vale o que queremos, isto é, que é o conjunto de todos os $y$ tais que $yR^*x$ por um $R$-caminho de $n + 1$ passos.
+    
+    Claramente todos elementos $z \in \pred_R^{n+1}(x)$ tem $R$-caminho de $n + 1$ passos para $x$, pois basta pegar $y$ tal que $z\in pred_R^n(y) \in A$, tomar o $R$-caminho de $y$ a $x$ e concatenar $z$ no início. 
+    
+    Reciprocamente, vamos mostrar que todos $z$ tais que $zR^*x$ por um $R$-caminho de $n + 1$ passos estão em $\pred_R^{n+1}(x)$. Seja $(x_0, x_1,...,x_n,x)$ um caminho de $n + 1$ passos, sabemos que $x_1 \in \pred_R^n(x)$ e que $x_0R x_1$, logo, $x_0 \in \pred_R(x_1)$ o que implica que $x\in pred_R^{n+1}(x)$, concluíndo a indução. 
+
+    Com isso e finalmente, consideremos $Z = \bigcup_{0 < n \in \omega}\pred_R^n(x)$, por Substuição e Axioma da União, é um conjunto e temos que $zR^*x \iff z \in Z$, assim, provamos que $R^*$ é set-like, como queríamos.
+\end{proof}
+
+\begin{definition}
+    Seja $R$ uma relação definida e $A$ uma classe. A restrição de $R$ a $A$, denotada por $R_A$, é definida por:
+
+    $$
+    \forall x\forall y(xR_A y \longlif (x\in A \land y\in A \land xRy))
+    $$
+
+    Quando $A$ é um conjunto, $R_A = \set((x,y)\in A : xRy)$. Dizemos que $R$ é bem-fundada em $A$ se $R_A$ é bem-fundada. 
+\end{definition}
+
+Convencionemos $R^*_A = (R_A)^*$ e não $(R^*)_A$. Como um check de sanidade, provemos:
+
+\begin{lemma}
+    Seja $R$ uma relação definida e $A$ uma classe. Então, $R$ é bem-fundada em $A$ se, e somente se, para todo $X \subseteq A$ existe um $R$-minimal de $X$.
+\end{lemma}
 \begin{proof}
     
 \end{proof}
