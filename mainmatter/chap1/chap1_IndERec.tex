@@ -1,0 +1,19 @@
+\section{Indução e Recursão em Relações Bem-fundadas e Set-like}
+Uma vez definidas o que significa ser relações bem-fundadas e set-like, mostremos que podemos fazer recursão e indução nelas. 
+
+\subsection{Indução Transfinita}
+
+Vamos mostrar a noção de mimimalidade e o um Princípio de Indução para relações finitas set-like e bem-fundadas. 
+
+\begin{proposition}{Princípio da Minimalidade}
+    Seja $R$ uma relação definida set-like e bem-fundada. Para $\phi(x,t_1,...,t_n)$, temos:
+    $$
+    \forall t_1...\forall t_n(\exists x\phi(x,t_1,...,t_n)) \to \exists x(\phi(x,t_1,...,t_n)\land \forall y(yRx \to \neg\phi(y,t_1,...,t_n)))
+    $$
+    Isto é, fixados parâmetros $t_1,...,t_n$ se existe um elemento que satisfaz uma fórmula, então existe o menor deles.
+\end{proposition}
+\begin{proof}
+    Fixemos $t_1,...,t_n$ e suponha que $\exists x\phi(x,t_1,...,t_n)$. Fixe $x$ tal que satisfaz $\phi(x,_t1,...,t_n)$. 
+
+    Se $\forall y(yRx \to \neg)$ (PENDING)
+\end{proof}

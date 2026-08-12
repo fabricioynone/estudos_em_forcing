@@ -30,6 +30,7 @@
 \newtheorem{theorem}{Teorema}[section] 
 \newtheorem{lemma}[theorem]{Lema}
 \newtheorem{proposition}[theorem]{Proposição}
+\newtheorem{corollary}[theorem]{Corolário}
 \theoremstyle{definition}
 \newtheorem{definition}{Definição}[section]
 \newtheorem{example}{Exemplo}[section]
@@ -62,6 +63,20 @@
   top=4pt, bottom=4pt, left=6pt, right=6pt,
   before skip=12pt, after skip=12pt
 }
+
+\tcolorboxenvironment{corollary}{
+  enhanced,
+  breakable,
+  colback=thmback,
+  colframe=thmborder,
+  boxrule=0.5pt,
+  leftrule=3pt,
+  arc=3pt,
+  borderline west={3pt}{0pt}{thmleftline},
+  top=4pt, bottom=4pt, left=6pt, right=6pt,
+  before skip=12pt, after skip=12pt
+}
+
 
 
 \tcolorboxenvironment{lemma}{
