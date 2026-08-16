@@ -11,9 +11,9 @@
 \usepackage{indentfirst}
 \usepackage{centernot}
 
-
 % --- LINE SPACING ---
 \onehalfspacing
+\allowdisplaybreaks
 
 % --- CORES TEOREMA ---
 \definecolor{thmleftline}{RGB}{89, 0, 98} % Azul escuro para a borda esquerda
@@ -31,6 +31,7 @@
 \newtheorem{lemma}[theorem]{Lema}
 \newtheorem{proposition}[theorem]{Proposição}
 \newtheorem{corollary}[theorem]{Corolário}
+\newtheorem{exercise}{Exercício}[section]
 \theoremstyle{definition}
 \newtheorem{definition}{Definição}[section]
 \newtheorem{example}{Exemplo}[section]
@@ -124,7 +125,7 @@
   before skip=12pt, after skip=12pt
 }
 
-\newenvironment{exercise}[1]
+\newenvironment{exerciseboxed}[1]
 {\begin{exercisebox}[#1]}
 {\end{exercisebox}}
 
@@ -133,21 +134,28 @@
 {\renewcommand{\qedsymbol}{$\blacksquare$}\begin{proof}[Resolução]}
 {\end{proof}}
 
-% --- COMANDOS MATEMÁTICOS ---
+% --- General ---
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\A}{\aleph}
-\newcommand{\pset}{\mathcal{P}}
 \newcommand{\set}[1]{\left\{ #1 \right\}}
-\newcommand{\pred}{\operatorname{pred}}
-\newcommand{\dom}{\operatorname{dom}}
-\newcommand{\lif}{\leftrightarrow}
 \newcommand{\longlif}{\longleftrightarrow}
+\newcommand{\lif}{\leftrightarrow}
+\newcommand{\dom}{\operatorname{dom}}
 
+% -- Set Theory -- 
+\newcommand{\pset}{\mathcal{P}}
+\newcommand{\pred}{\operatorname{pred}}
+\newcommand{\ap}{\operatorname{Ap}}
 
+% -- Analysis
+\newcommand{\infsum}{\sum_{n=1}^{\infty}}
+
+% -- Not Math
+\newcommand{\pending}{\textbf{\textcolor{red}{(PENDING)}}}
 
 % --- NAVEGAÇÃO E LINKS ---
 \usepackage{bookmark}

@@ -81,7 +81,7 @@ Provemos que $R^*$ é, de fato, transitivo e que extende $R$, justificando o nom
 \end{proof}
 
 \begin{remark}
-    Na verdade, $R^*$ é a menor relação transitiva que contém $R$. Vejamos, (PENDING)
+    Na verdade, $R^*$ é a menor relação transitiva que contém $R$. Vejamos, \pending
 \end{remark}
 
 Mostremos que a transitivização herda a propriedade de ser set-like:
@@ -158,7 +158,7 @@ A seguinte definição generaliza a noção de conjunto transitivo:
         \item Seja $x\in \pred_{R^*}(a)$, então existe um $R$-caminho de $n \geq 1$ passos de $b$ até $a$, digamos $(x_0,...,x_n)$. Suponha por absurdo que $b\notin A$, então existe o maior $i < n$ tal que $x_i \notin A$, como $\pred_R(a) \subseteq A$, $i < n - 1$, logo, $n \geq 2$ e $i + 1 < n$. Segue, portanto, que $x_{i + 1} \in A$ e que $x_i R x_{i + 1}$. Contradição com o fato de $A$ é $R$-fechada, uma vez que $x_i \in \pred_R(x_{i + 1}) \subseteq A$.
         \item Como $a\in A$ e é $R$-fechada, segue que $\pred_R(a) \subseteq A$ e segue do item c). 
         \item Trivial. 
-        \item Por b) e e), segue que $\bigcup_{b\in \pred_R(a)} \pred_{R^*}(b)\cup\set{b} \subseteq \pred_{R^*}(a)$, pois $\pred_R(a) \subseteq \pred_{R^*}(a)$, para os unitários que estamos unindo, e $\pred_{R^*}(b) \subseteq \pred_{R^*}(a)$. Assim, estamos unindo elementos de $\pred_{R^*}(A)$. seja $A = \bigcup_{b\in \pred_R(a)} \pred_{R^*}(b)\cup\set{b}$, vamos usar c) para concluir que $\pred_{R^*}(a) \subseteq A$. Para isso, precisamos provar que $A$ é classe $R$-fechada, pois notemos que $\pred_R(a) \subseteq A$. De fato, tomemos $c\in A$, se $c\in \pred_R(a)$, então, $\pred_R(c) \subseteq A$, pois $\pred_{R^*}(c) $   (PEDNING)
+        \item Por b) e e), segue que $\bigcup_{b\in \pred_R(a)} \pred_{R^*}(b)\cup\set{b} \subseteq \pred_{R^*}(a)$, pois $\pred_R(a) \subseteq \pred_{R^*}(a)$, para os unitários que estamos unindo, e $\pred_{R^*}(b) \subseteq \pred_{R^*}(a)$. Assim, estamos unindo elementos de $\pred_{R^*}(A)$. seja $A = \bigcup_{b\in \pred_R(a)} \pred_{R^*}(b)\cup\set{b}$, vamos usar c) para concluir que $\pred_{R^*}(a) \subseteq A$. Para isso, precisamos provar que $A$ é classe $R$-fechada, pois notemos que $\pred_R(a) \subseteq A$. De fato, tomemos $c\in A$, se $c\in \pred_R(a)$, então, $\pred_R(c) \subseteq A$, pois $\pred_{R^*}(c) $  \pending
     \end{enumerate}
 \end{proof}
 

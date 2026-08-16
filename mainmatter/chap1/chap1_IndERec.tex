@@ -10,10 +10,47 @@ Vamos mostrar a noção de mimimalidade e o um Princípio de Indução para rela
     $$
     \forall t_1...\forall t_n(\exists x\phi(x,t_1,...,t_n)) \to \exists x(\phi(x,t_1,...,t_n)\land \forall y(yRx \to \neg\phi(y,t_1,...,t_n)))
     $$
-    Isto é, fixados parâmetros $t_1,...,t_n$ se existe um elemento que satisfaz uma fórmula, então existe o menor deles.
+    Isto é, fixados parâmetros $t_1,...,t_n$ se existe um elemento que satisfaz uma fórmula, então existe o $R$-menor deles.
 \end{proposition}
 \begin{proof}
-    Fixemos $t_1,...,t_n$ e suponha que $\exists x\phi(x,t_1,...,t_n)$. Fixe $x$ tal que satisfaz $\phi(x,_t1,...,t_n)$. 
+    Fixemos $t_1,...,t_n$ e suponha que $\exists x\phi(x,t_1,...,t_n)$. Fixe $x$ tal que satisfaz $\phi(x,t_1,...,t_n)$. 
 
-    Se $\forall y(yRx \to \neg)$ (PENDING)
+    Se $\forall y(yRx \to \neg\phi(x,t_1,...,t_n))$, então segue o que queremos. Senão, considere o conjunto
+    $$
+    X = \set{z\in \pred_{R^*}(x):\phi(z,t_1,...,t_n)}
+    $$
+    Pelo Esquema da Compreensão, usando que $R$ é set-like e o lema que provamos anteriormente que garante que, em tais condições, $R^*$ também o é, $X$ é um conjunto e $X\neq \emptyset$ pelo que assumimos e por $R^*$ estender $R$. Assim, pela boa-fundação de $R$, segue que existe um $R$-minimal de $X$, é fácil ver que este $R$-minimal satisfaz o que queremos.
 \end{proof}
+
+Como corolário desta proposição, temos indução transfinita para $R$ relação definida set-like e bem fundada:
+
+\begin{corollary}
+    Seja $R$ uma relação definida set-like e bem-fundada. Para $\phi(x,t_1,...,t_n)$ uma fórmula, temos:
+    $$\forall t_1...\forall t_n(\forall x(\forall z\in \pred_R(x)\phi(z,t_1,...,t_n)\to \phi(x,t_1,..,t_n)))\to\forall x\phi(x,t_1,...,t_n)$$
+\end{corollary}
+\begin{proof}
+    Fixemos $t_1,...,t_n$ e seja uma $\phi$ tal que 
+    $$
+    \forall x(\forall z\in \pred_R(x)\phi(z,t_1,...,t_n)\to \phi(x,t_1,..,t_n))$$
+    Suponhamos que existe $x$ tal que vale $\neg\phi(x,t_1,..,t_n)$, então, pelo lema anterior, existe $y$ o $R$-minimal deles no qual não vale $\phi$. Como é $R$-minimal, temos que vale para todo $z\in \pred_R(y)$, porém, pela hipótese, $\phi$ teria de valer para $y$, contradição. 
+\end{proof}
+
+\subsection{Recursão Transifinita}
+
+Para chegarmos no enunciado e prova, precisaremos estabelecer primeiro alguns conceitos. 
+
+\begin{definition}
+    Seja $R$ uma relação definida set-like. Seja $G(p,s,a)$ um símbolo funcional ternário introduzido por definição. 
+    Dados conjuntos $t,a,p$, escrevemos $\ap_G(t,p,a)$ e dizemos que $t$ é uma computação parcial em $a$ com parâmetro $p$ baseada em $G$ se, e somente se, valem:
+    \begin{itemize}
+        \item $t$ é função;
+        \item $\dom (t)$ é $R$-fechado;
+        \item $a\in \dom(t)$;
+        \item $t(b) = G(p,t|_{pred_R(b)},b)$ para todo $b \in \dom(t)$.
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+    Seja $R$ uma relação bem-fundada set-like e $G$ um símbolo funcional ternário introduzido por definição, se $t_1,t_2,a_1,a_2,p$ são tais que $\ap_G(t_1,p,a_1)$ e $\ap_G(t_2,p,a_2)$, então, $t_1$ e $t_2$ são compatíveis.
+
+\end{lemma}
